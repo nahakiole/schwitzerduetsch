@@ -1,0 +1,19 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Robin Glauser",
+    "longName": "Schwitzerd\u00fctsch",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "shortName": "Schwitzerd\u00fctsch",
+    "uuid": "137abfa0-d4aa-4826-9acb-a3ff754dcc57",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
