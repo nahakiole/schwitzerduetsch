@@ -4,7 +4,7 @@ static Window *s_main_window;
 static TextLayer *s_hour_layer;
 static TextLayer *s_min_layer;
 
-static char hours[13][7] = {"nuu", "eis", "zwöi", "drü", "vieri", "füfi", "sächis", "sibni", "achti", "nüni", "zäni", "eufi", "zwöufi"};
+static char hours[13][8] = {"nuu", "eis", "zwöi", "drü", "vieri", "füfi", "sächsi", "sibni", "achti", "nüni", "zäni", "eufi", "zwöufi"};
 
 static char minutes[12][20] = {"öpä","füf ab","zäh ab","viertu ab", "zwänzg ab", "füfäzwängsab", "haubi", "füf ab haubi", "zwänzg vor", "viertu vor", "zäh vor", "füf vor"};
 
@@ -31,7 +31,7 @@ static void update_time() {
     minute = get_aprox_minute(minute);
 
     // From index seven on we use the next hour to show the time eg. "viertuvor achti"
-    if (minute > 7){
+    if (minute > 6){
         hour++;
     }
 
