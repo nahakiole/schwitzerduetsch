@@ -7,7 +7,14 @@
     "longName": "Schwitzerd\u00fctsch",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/swiss.png",
+                "menuIcon": true,
+                "name": "IMAGE_SWISS",
+                "type": "png"
+            }
+        ]
     },
     "shortName": "Schwitzerd\u00fctsch",
     "uuid": "137abfa0-d4aa-4826-9acb-a3ff754dcc57",

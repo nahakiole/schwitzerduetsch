@@ -14,14 +14,21 @@ static int get_aprox_minute(int minute) {
 }
 
 static char *get_minute_string(int minute) {
-		return special[minute];
+		return special[minute]; 
 }
 
 static void update_time() {
   time_t temp = time(NULL); 
   struct tm *tick_time = localtime(&temp);
   int hour = tick_time->tm_hour;
-	int minute = get_aprox_minute(tick_time->tm_min);
+	int second = tick_time->tm_sec;
+	int minute = tick_time->tm_min;
+	
+	//If over half of the minute has passed we round up the minute
+	if (second > 30){
+		minute++;
+	}
+	minute = get_aprox_minute(minute);
 	if (minute > 7){
 		hour++;
 	}
