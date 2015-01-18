@@ -6,7 +6,7 @@ static TextLayer *s_min_layer;
 
 static char hours[13][7] = {"nuu", "eis", "zwöi", "drü", "vieri", "füfi", "sächis", "sibni", "achti", "nüni", "zäni", "eufi", "zwöufi"};
 
-static char special[12][20] = {"öpä","füf ab","zäh ab","viertu ab", "zwänzg ab", "füfäzwängsab", "haubi", "füf ab haubi", "zwänzg vor", "viertu vor", "zäh vor", "füf vor"};
+static char minutes[12][20] = {"öpä","füf ab","zäh ab","viertu ab", "zwänzg ab", "füfäzwängsab", "haubi", "füf ab haubi", "zwänzg vor", "viertu vor", "zäh vor", "füf vor"};
 
 
 static int get_aprox_minute(int minute) {
@@ -14,7 +14,7 @@ static int get_aprox_minute(int minute) {
 }
 
 static char *get_minute_string(int minute) {
-		return special[minute]; 
+		return minutes[minute]; 
 }
 
 static void update_time() {
@@ -24,11 +24,13 @@ static void update_time() {
 	int second = tick_time->tm_sec;
 	int minute = tick_time->tm_min;
 	
-	//If over half of the minute has passed we round up the minute
+	// If over half of the minute has passed we round up the minute
 	if (second > 30){
 		minute++;
 	}
 	minute = get_aprox_minute(minute);
+	
+	// From index seven on we use the next hour to show the time eg. "viertuvor achti"
 	if (minute > 7){
 		hour++;
 	}
@@ -36,8 +38,6 @@ static void update_time() {
   text_layer_set_text(s_min_layer, get_minute_string(minute));
   text_layer_set_text(s_hour_layer, hours[hour%12]);
 }
-
-
 
 static void main_window_load(Window *window) {
   s_hour_layer = text_layer_create(GRect(0, 80, 144, 50));
@@ -50,9 +50,9 @@ static void main_window_load(Window *window) {
 	text_layer_set_background_color(s_hour_layer, GColorClear);
   text_layer_set_text_color(s_hour_layer, GColorWhite);
 	
-  text_layer_set_text(s_hour_layer, hours[0]);
+  text_layer_set_text(s_hour_layer, "");
 	
-  text_layer_set_text(s_min_layer, special[0]);
+  text_layer_set_text(s_min_layer, "");
 	
 	
   window_set_background_color(window, GColorBlack);
@@ -60,7 +60,7 @@ static void main_window_load(Window *window) {
   text_layer_set_font(s_hour_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(s_hour_layer, GTextAlignmentCenter);
 	
-	 text_layer_set_font(s_min_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+	text_layer_set_font(s_min_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
   text_layer_set_text_alignment(s_min_layer, GTextAlignmentCenter);
 
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_hour_layer));
