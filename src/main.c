@@ -13,7 +13,7 @@ static int get_aprox_minute(int minute) {
     return ((minute+2)/5);
 }
 
-static char *get_minute_string(int minute) {
+static char* get_minute_string(int minute) {
     return minutes[minute]; 
 }
 
@@ -31,7 +31,7 @@ static void update_time() {
     minute = get_aprox_minute(minute);
 
     // From index seven on we use the next hour to show the time eg. "viertuvor achti"
-    if (minute > 6){
+    if (minute >= 6){
         hour++;
     }
 
