@@ -4,9 +4,9 @@ static Window *s_main_window;
 static TextLayer *s_hour_layer;
 static TextLayer *s_min_layer;
 
-static char hours[13][8] = {"nuu", "eis", "zwöi", "drü", "vieri", "füfi", "sächsi", "sibni", "achti", "nüni", "zäni", "eufi", "zwöufi"};
+static char hours[13][8] = {"zwöufi", "eis", "zwöi", "drü", "vieri", "füfi", "sächsi", "sibni", "achti", "nüni", "zäni", "eufi"};
 
-static char minutes[12][20] = {"öpä","füf ab","zäh ab","viertu ab", "zwänzg ab", "füfäzwängsab", "haubi", "füf ab haubi", "zwänzg vor", "viertu vor", "zäh vor", "füf vor"};
+static char minutes[13][20] = {"öpä","füf ab","zäh ab","viertu ab", "zwänzg ab", "füfäzwängsab", "haubi", "füf ab haubi", "zwänzg vor", "viertu vor", "zäh vor", "füf vor", "öpä"};
 
 
 static int get_aprox_minute(int minute) {
@@ -21,9 +21,9 @@ static void update_time() {
     time_t temp = time(NULL); 
     struct tm *tick_time = localtime(&temp);
     int hour = tick_time->tm_hour;
-    int second = tick_time->tm_sec;
     int minute = tick_time->tm_min;
-
+    int second = tick_time->tm_sec;
+	
     // If over half of the minute has passed we round up the minute
     if (second > 30){
         minute++;
