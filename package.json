@@ -1,0 +1,35 @@
+{
+    "author": "Robin Glauser",
+    "dependencies": {},
+    "keywords": [],
+    "name": "schwitzerd-tsch",
+    "pebble": {
+        "displayName": "Schwitzerd\u00fctsch",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/swiss.bmp",
+                    "name": "MENU_ICON",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk",
+            "diorite",
+            "emery"
+        ],
+        "uuid": "4ee1b6cb-4b4b-4231-9765-982fa9d9fde6",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "3.0.0"
+}
